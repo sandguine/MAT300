@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{mathtools,xparse}
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\begin{document}
+\title{MAT300: Homework 3}
+\author{
+	Joseph Bryan IV\\
+	Benjamin Friedman\\
+	Koranis (Sandy) Tanwisuth
+}
+
+\maketitle
+	\begin{flushleft}
+		\textbf{p. 62: 3.2.2, 3.2.3, 3.2.4, 3.2.5}
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item Induction \\
+		
+		\textbf{\textit{3.2.2}}
+		\begin{flushleft}
+			For each natural number $n$ prove that 
+			\begin{equation}\label{eq1}
+				\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+			\end{equation}
+			% \[\sum_{i=1}^{n} i = \frac{n(n+1)}{2}\]
+			\\
+			\begin{proof}
+				By induction, \\
+				Suppose $P(n)$ is $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$. \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $P(n=1)$, the left hand side of the equation equals to 1 while the right hand side equals to $\frac{1(1+1)}{2}$. Thus, both sides are equal to 1 and $P(n)$ is true for $n=1$.
+				\\
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true, i.e. $\sum_{i=1}^{k} i = \frac{k(k+1)}{2}$. Then
+				\begin{align*}
+					\sum_{i=1}^{k+1} i & = (k+1) + \sum_{i=1}^{k} i \\
+					& = (k+1) + \frac{k(k+1)}{2}, \thickspace by \thickspace induction \thickspace hypothesis \\
+					& = \frac{2(k+1)}{2} + \frac{k(k+1)}{2} \\
+					& = \frac{2(k+1)+k(k+1)}{2} \\
+					& = \frac{(k+1)(k+2)}{2}
+				\end{align*}
+				Thus, $P(n)$ holds for $n=k+1$. 
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+			
+		\end{flushleft}
+		
+		\textbf{\textit{3.2.3}}
+		\begin{flushleft}
+			Let $n \in \mathbb{N}$. Conjecture a formula for
+			\[a_n = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} + \frac{1}{(3)(4)} + ... + \frac{1}{(n)(n+1)}\] 
+			and prove your conjecture.
+			\\
+			\textbf{Conjecture:}
+			\begin{align*}
+				& a_1 = \frac{1}{(1)(1+1)} = \frac{1}{2} \\
+				& a_2 = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} = \frac{1}{2} + \frac{1}{6} = \frac{2}{3} \\
+				& a_3 = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} + \frac{1}{(3)(4)} = \frac{1}{2} + \frac{1}{6} + \frac{1}{12} = \frac{3}{4} \\
+				& ... \\
+				& a_n = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} + \frac{1}{(3)(4)} + ... + \frac{1}{(n)(n+1)} = \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + ... + \frac{1}{n^2+n} = \frac{n}{n+1} \\
+			\end{align*}
+			\begin{proof}
+				By induction, \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $n = 1$, $a_1$ equals to $\frac{1}{(1)(1+1)}$ which equals to $\frac{1}{2}$. Thus, $a_n$ holds for $n=1$.
+				\\
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $a_k$ is true, i.e. $a_k = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} + \frac{1}{(3)(4)} + ... + \frac{1}{(k)(k+1)} = \frac{k}{k+1}$. Then
+				\begin{align*}
+					a_{k+1} & = \frac{1}{(1)(2)} + \frac{1}{(2)(3)} + \frac{1}{(3)(4)} + ... + \frac{1}{(k)(k+1)} + \frac{1}{(k+1)(k+2)}\\
+					& = \frac{k}{k+1} + \frac{1}{(k+1)(k+2)}, \thickspace by \thickspace induction \thickspace hypothesis \\
+					& = \frac{k(k+2)}{(k+1)(k+2)} + \frac{1}{(k+1)(k+2)}\\
+					& = \frac{k^2+2k+1}{(k+1)(k+2)} \\
+					& = \frac{(k+1)(k+1)}{(k+1)(k+2)} \\
+					& = \frac{(k+1)}{(k+2)}
+				\end{align*}
+				Thus, $a_n$ holds for $n=k+1$. 
+				By the principle of mathematical induction, $a_n$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+		\end{flushleft}
+		
+		\textbf{\textit{3.2.4}}
+		\begin{flushleft}
+			Use induction to prove that every positive integer is either even or odd. Then use this result to show that every integer is either even or odd.
+			\\
+			\begin{proof}
+				By induction, \\
+				Suppose $n$ be an arbitrary but fixed element in $N$,
+				\[
+					P(n)=\left\{
+					\begin{array}{l}
+					2n-1 \thickspace or\\
+					2n\\
+					\end{array}
+					\right.
+				\]
+				By definitions of odd and even integers, there are two cases for $P(n)$ which includes $P(n) = 2n-1$ when $P(n)$ is odd or $P(n) = 2n$ when $P(n)$ is even. 
+				\\ \vspace{3mm}
+				\textbf{Case 1:} $P(n)$ is odd \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $P(n=1)$, $P(n)$ equals to $2(1) - 1 = 1$. Since, by definition of odd integer, 1 is odd. Thus, $P(n)$ holds for $n=1$.
+				\\
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true, i.e. 
+				$P(k)= 2k-1$ is odd. Then,
+				\begin{align*}
+					P(k+1) & = 2(k+1) -1 \\
+					& = 2k - 1 + 2 , \thickspace by \thickspace induction \thickspace hypothesis\\
+					& = P(k) + 2
+				\end{align*}
+				Since $P(k)$ is an odd integer, $P(k+1) = P(k)+2$ is also an odd integer. Thus, $P(n)$ holds for $n=k+1$. 
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
+				\\ \vspace{3mm}
+				\textbf{Case 2:} $P(n)$ is odd \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $P(n=1)$, $P(n)$ equals to $2(1) = 2$. Since, by definition of even integer, 2 is even. Thus, $P(n)$ holds for $n=1$.
+				\\
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true, i.e. 
+				$P(k)= 2k$ is even. Then,
+				\begin{align*}
+					P(k+1) & = 2(k+1) \\
+					& = 2k + 2, \thickspace by \thickspace induction \thickspace hypothesis \\
+					& = P(k)+2
+				\end{align*}
+				Since $P(k)$ is an even integer, $P(k+1) = P(k)+2$ is also an even integer. Thus, $P(n)$ holds for $n=k+1$. 
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+		\end{flushleft}
+		
+		\textbf{\textit{3.2.5}}
+		\begin{flushleft}
+			Let $m$ and $n \in \mathbb{N}$. Define what it means to say that $m$ divides $n$. Now prove that for all $n \in \mathbb{N}$, 6 divides $n^3-n$.
+			\\
+			Suppose $m, n$ be arbitrary but fixed elements in $\mathbb{N}$. If $m$ divides $n$ denoted by $m\mid n$ means that there exist an arbitrary but fixed element $q \in \mathbb{Z}$ such that $mq = n$. 
+			\begin{proof}
+				By induction, 
+				suppose that $P(n) = \frac{n^3-n}{6}$. \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $P(n=1)$, $P(n)$ is defined by $\frac{1^3-1}{6} = 0$. Since $6 \cdot 0 = 0$. Thus, $P(n)$ holds for $n=1$.
+				\\
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true, i.e. $P(k)$ is defined by $6 \mid k^3-k$. Then
+				\begin{align*}
+				& 6 \mid (k+1)^3-(k+1) \\
+				& 6 \mid k^3+3k^2+3k+1-k-1 \\
+				& 6 \mid (k^3-k)+(3k^2+3k)+1-1 \\
+				& 6 \mid (k^3-k)+3k(k+1) 
+				\end{align*}
+				6 divides $(k^3-k)$ by induction hypothesis. For $3k(k+1)$, $3 \cdot (k^2+k) = 3k(k+1)$, given that $k^2+k \in \mathbb{Z}$. Then 3 divides $3k(k+1)$. And 2 divides $k(k+1)$ since $k \cdot (k+1)$ is equivalent to odd integer times even integer or even integer times odd integer (by 3.2.4). Since 6 is a product of 2 and 3, 6 also divides 3k(k+1). Thus, $a_n$ holds for $n=k+1$. By the principle of mathematical induction, $a_n$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+		\end{flushleft}
+		\end{enumerate}
+	\end{flushleft}
+\end{document}

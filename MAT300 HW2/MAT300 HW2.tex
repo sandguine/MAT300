@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{mathtools,xparse}
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\begin{document}
+\title{MAT300: Homework 2}
+\author{
+	Joseph Bryan IV\\
+	Benjamin Friedman\\
+	Koranis (Sandy) Tanwisuth
+}
+
+\maketitle
+	\begin{flushleft}
+		\textbf{p. 54: 4ac, 5, 6. adapt p. 38 QtoP 2 to sqrt(3). 
+			(cleaned up) proofs: exer. 2.4.4, part 2 of prob. 2.4.8 and thm. 2.4.9, 2.5.7}
+	\end{flushleft}
+	\begin{enumerate}
+		\setcounter{enumi}{3}
+		\item
+		\begin{flushleft}
+			\begin{enumerate}
+				\item For each $n \in \mathbb{N}$ let
+				\[A_n = (\frac{1}{2}, \frac{1}{2} + \frac{1}{n})\]
+				\begin{enumerate}
+					\item find $\bigcup\limits_{n \in \mathbb{N}} A_n$
+					\newline
+					By definition of generalized union, $\bigcup\limits_{n \in \mathbb{N}} A_n$ is the set that contains all objects that are elements of at least one $A_n$. Since $A_n = (\frac{1}{2}, \frac{1}{2} + \frac{1}{n})$ and $n \in \mathbb{N}$ which means that $ \mathbb{N} = \{ n : n \in \mathbb{Z}^{+} \}$,
+					\[A_1 = (\frac{1}{2}, \frac{3}{2}) \cup 
+					A_2 = (\frac{1}{2}, 1) \cup 
+					A_3 = (\frac{1}{2}, \frac{5}{6}) \cup 
+					... \cup
+					A_n = (\frac{1}{2}, \frac{1}{2} + \frac{1}{n}) \]
+					As a result, $\bigcup\limits_{n \in \mathbb{N}} A_n = (\frac{1}{2}, \frac{3}{2})$.
+					
+					\item find $\bigcap\limits_{n \in \mathbb{N}} A_n$
+					\newline
+					By definition of generalized intersection, $\bigcap\limits_{n \in \mathbb{N}} A_n$ is the set that contains objects that are common elements of all $A_n$. Since $A_n = (\frac{1}{2}, \frac{1}{2} + \frac{1}{n})$ and $n \in \mathbb{N}$ which means that $ \mathbb{N} = \{ n : n \in \mathbb{Z}^{+} \}$.
+					\[A_1 = (\frac{1}{2}, \frac{3}{2}) \cap
+					A_2 = (\frac{1}{2}, 1) \cap 
+					A_3 = (\frac{1}{2}, \frac{5}{6}) \cap 
+					... \cap
+					A_n = (\frac{1}{2}, \frac{1}{2} + \frac{1}{n}) \]
+					As a result -- since the interval is an open interval,  $\frac{1}{2}$ is not included -- $\bigcap\limits_{n \in \mathbb{N}} A_n = \emptyset$. \\
+					
+					\item
+					How would your answer changed if the intervals were closed instead of opened? \\
+					The answers will be as follows
+					$\bigcup\limits_{n \in \mathbb{N}} A_n = [\frac{1}{2}, \frac{3}{2}] $ and $\bigcap\limits_{n \in \mathbb{N}} A_n = \frac {1}{2}.$
+					
+				\end{enumerate}
+				\setcounter{enumii}{2}
+				\item For each $r \in \mathbb{Q}$ let
+				\[D_r = (\frac{1}{2} - r, \frac{1}{2} + r).\]
+				
+				\begin{enumerate}
+					\item find $\bigcup\limits_{r \in \mathbb{Q}} D_r$
+					\newline
+					By definition of generalized union, $\bigcup\limits_{r \in \mathbb{Q}} D_r$ is the set that contains all objects that are elements of at least one $D_r$. Since $D_r = (\frac{1}{2} - r, \frac{1}{2} + r)$ and $\mathbb{Q} = \{r : r = \frac{m}{n} \mid m, n \in \mathbb{Z} \}.$
+					\[D_\frac{1}{1}= (- \frac{1}{2}, \frac{3}{2}) \cup 
+					... \cup
+					D_r = (\frac{1}{2} - r, \frac{1}{2} + r) \]
+					And since $D_r = (\frac{1}{2} - r, \frac{1}{2} + r)$, the negative ones will not be defined; as a result, $\bigcup\limits_{r \in \mathbb{Q}} D_r = \mathbb{Q}$.
+					
+					\item find $\bigcap\limits_{r \in \mathbb{Q}} D_r$
+					\newline
+					By definition of generalized intersection, $\bigcap\limits_{r \in \mathbb{Q}} D_r$ is the set that contains all objects that are common elements of all $D_r$. Since $D_r = (\frac{1}{2} - r, \frac{1}{2} + r)$ and $\mathbb{Q} = \{r : r = \frac{m}{n} \mid m, n \in \mathbb{Z} \}.$
+					\[D_\frac{1}{1}= (- \frac{1}{2}, \frac{3}{2}) \cap 
+					... \cap
+					D_r = (\frac{1}{2} - r, \frac{1}{2} + r) \]
+					And since $D_r = (\frac{1}{2} - r, \frac{1}{2} + r)$, the negative ones will not be defined; as a result, $\bigcap\limits_{r \in \mathbb{Q}} D_r = \emptyset$.
+					
+				\end{enumerate}
+			\end{enumerate}
+		\end{flushleft}
+		\setcounter{enumi}{4}
+		\item
+		\begin{flushleft}
+			Suppose $A$ and $B$ are subsets of some set $U$. In this problem you will prove the following statement:
+			\[A \cap B^\mathsf{c} = \emptyset \thickspace if\thickspace and\thickspace only\thickspace if\thickspace A \subseteq B\]
+			
+			\begin{enumerate}
+				\item For each of these implications, write out explicitly what you have to do to prove them directly, by contrapositive, and by contradiction. 
+				\\ \vspace{1.5mm} 
+				By the definition of direct proof, we have to assume that the hypothesis is true which, then, implies that the conclusion is also true. In this case, assume that $A \cap B^\mathsf{c} = \emptyset $ and find that $A \subseteq B $ is also true.
+				\\ \vspace{1.5mm} 
+				By definition of proof by contrapositive, we have to assume that the conclusion is not ture implied that the hypothesis is not true. In this case, $\neg (A \subseteq B) \implies \neg (A \cap B^\mathsf{c} = \emptyset)$. 
+				\\ \vspace{1.5mm} 
+				By definition of proof by contradiction, we have to assume the hypothesis and the negation of the conclusion which should be false and show that the implication is true. In this case, assume $(A \cap B^\mathsf{c} = \emptyset) \land \neg (A \subseteq B)$ which will show that $A \cap B^\mathsf{c} = \emptyset \implies A \subseteq B.$
+				
+				\item Consider each of these methods of proof. Choose the one that make the implication most tractable. Prove the equivalence.
+				
+				\begin{proof}
+					By contradiction, let $A$ and $B$ be arbitary but fixed sets. Let $X$ be an arbitary but fixed element of $A$ which means that for all $y$ that is an element of $X$, $y$ is also an element of $A$. Assume that $A \cap B^\mathsf{c} = \emptyset$ and $A \nsubseteq B$. Since $X$ is an element of $A$ and $A \cap B^\mathsf{c} = \emptyset$, $X$ is not an element of $B^\mathsf{c}$. Since $X$ is an element of $A$ and $X$ is not an element of $B^\mathsf{c}$, $X$ is an element of $B$ which means that for all $y$ that is an element of $X$ is also an element of $B$ which implies that $A \subseteq B$. However, this contradict the assumption that $A \nsubseteq B$. Thus, $A \cap B^\mathsf{c} = \emptyset$ implies $A \nsubseteq B$. 
+					\\ \vspace{1.5mm} 
+					For the converse, by contrapositive, let $A$ and $B$ be arbitary but fixed sets. Assume that $A \cap B^\mathsf{c} \neq \emptyset$. Let $X$ be an arbitary but fixed element of $A \cap B^\mathsf{c}$ which means that for all $y$ that is an element of $X$ is also an element of $A \cap B^\mathsf{c}$. Since $X$ is an element of $A \cap B^\mathsf{c}$, by definition of intersection, $X$ is an element of $A$ and $X$ is also an element of $B^\mathsf{c}$. By definition of compliment, since $X$ is an element of $B^\mathsf{c}$, $X$ is not an element of $B$. Since $X$ is an element of $A$ and $X$ is not an element of $B$, $X$ is not an element of $A \cap B$. By definition of subset, since for all $y$ that is an element of $X$, $y$ is not an element of $A \cap B$. As a result, $A \nsubseteq B$. Since $A \cap B^\mathsf{c} \neq \emptyset$ implies that $A \nsubseteq B$, $A \subseteq B$ implies that $A \cap B^\mathsf{c} = \emptyset$
+				\end{proof}
+			\end{enumerate}
+		\end{flushleft}
+		\setcounter{enumi}{5}
+		\item
+		\begin{flushleft}
+			From Theorem 2.4.11 p.50
+			\begin{enumerate}
+				\item Is it true that
+				$A \cup (B \setminus C) = (A \cup B) \setminus (A \cup C)$
+				and 
+				$A \cap (B \setminus C) = (A \cap B) \setminus (A \cap C)$?
+				\begin{enumerate}
+					\item 	For $A \cup (B \setminus C) = (A \cup B) \setminus (A \cup C)$.
+					\\ \vspace{2mm} 
+					To disprove the statement, a counter example will be provided. Suppose $A$, $B$, and C are arbitary but fixed sets in a universe $U$. Let $U = \{1, 2, 3, 4, 5, 6\}$ and $A = \{1, 2\}$, $B = \{3, 4\}$, and $C = \{2, 4, 5\}$. Then $A \cup (B \setminus C) = \{1, 2, 3\}$  while $ (A \cup B) \setminus (A \cup C) = \{3\}$. As a result, from the counter example, $A \cup (B \setminus C) \neq (A \cup B) \setminus (A \cup C)$.
+					\\ \vspace{2mm} 
+					\item For $A \cap (B \setminus C) = (A \cap B) \setminus (A \cap C)$.
+						\begin{proof}
+							Let $A, B,$ and $C$ be sets and let $x$ be an arbitary but fixed element of $A \cap (B \setminus C)$. This implies that $x \in A$ and $x \in (B \setminus C)$ by definition of intersection. Then, $x \in A$ and $x \in B$ but $x \notin C$ by definition of difference of two sets. Then, $x \in A \cap B$ but $x \notin A \cap C$ by distributive laws. Thus, $x \in (A \cap B) \setminus (A \cap C)$. As a result, $A \cap (B \setminus C) \subseteq (A \cap B) \setminus (A \cap C)$. Similarly, for the same reasons, $(A \cap B) \setminus (A \cap C)$ is also a subset of $A \cap (B \setminus C)$.  $\therefore (A \cap B) \setminus (A \cap C) = A \cap (B \setminus C)$.
+						\end{proof}
+				\end{enumerate}
+				
+				\item Is it true that $(A \setminus B^\mathsf{c}) = (A^\mathsf{c} \setminus B^\mathsf{c})$?
+				\\ \vspace{1.5mm} 
+				To disprove the statement, a counter example will be provided. Suppose $A$, $B$, and C are arbitary but fixed sets in a universe $U$. Let $U = \{1, 2, 3, 4\}$ and $A = \{1\}$, $B = \{2\}$, and $C = \{1, 2, 3\}$. Then $(A \setminus B^\mathsf{c}) = \{3, 4\} $ while $ (A^\mathsf{c} \setminus B^\mathsf{c}) = \{2\}$. As a result, from the counter example, we can see that $(A \setminus B^\mathsf{c}) \neq (A^\mathsf{c} \setminus B^\mathsf{c})$.
+			\end{enumerate}
+		\end{flushleft}
+		\textbf{\textit{Question to Ponder: 2}}
+		\begin{flushleft}
+			Prove that $\sqrt{3}$ is irrational.
+			\begin{proof}
+				By contradiction, assume to the contary that there exists a rational number $x$ whose square equals to 3. By definition of rational number, there exists two integers $m, n$ such that $x = \frac{m}{n}$ without loss of generality assume m, n are relatively prime. Thus $(\frac{m}{n})^2 = 3$ and can be rewrite as $m^2 = 3n^2$ which says that m can be divided by 3 ($3 \mid m$). But then $3 \mid m$ means that there exists an integer $k$ such that $m = 3k$. Then, by substituting $m$ with $3k$, $(3k)^2 = 3n^2$ which is equivalent to $9k^2 = 3n^2$. Since both $9k^2$ and $3n^2$ can be divided by 3, this contradicts ous assumptions that $m$ and $n$ has no common factor. Therefore, there does not exist a rational number whose square equals to 3.
+			\end{proof}
+		\end{flushleft}
+		\textbf{\textit{2.4.4}}
+		\setcounter{enumi}{1}
+		\item 
+		\begin{flushleft}
+			Let $A$, $B$, and $C$ be sets. Prove that
+			\[A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\]
+			\begin{proof}
+				Let $x$ be an arbitary but fixed element of $A \cap (B \cup C)$. Then, by definition of intersection, $x \in A$ and $x \in B \cup C$. By definition of union and by distributive law, $x \in A$ and $x \in B$ or $x \in A$ and $x \in C$. Then, $x \in (A \cap B) \cup (A \cap C)$. This shows that $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$.
+				\\ \vspace{1mm} 
+				Similarly, let $x$ be an arbitary but fixed element of $(A \cap B) \cup (A \cap C)$. Then, by distributive laws, $x \in A$ and $x \in B \cup C$. Then by definition of intersection, $x \in A \cap (B \cup C)$ which shows that $(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$.
+				
+				$\therefore A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+			\end{proof}
+			
+		\end{flushleft}
+		\textbf{\textit{2.4.8}}
+		\begin{flushleft}
+			Let $A$ and $B$ be subsets of a set $U$. Prove that
+			\[(A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}\] \\
+			\begin{proof}
+				Directly, let $x$ be an arbitary but fixed element of $(A \cap B)^\mathsf{c}$. Then, by definition of complement, $x \notin A \cap B$. By definition of intersection, $x \notin A$ and $x \notin B$. Since $x \notin A$ and $x notin B$, by de Morgan's laws, $x \in A^\mathsf{c}$ or $x \in B^\mathsf{c}$. Thus, $(A \cap B)^\mathsf{c}$ is a subset of $A^\mathsf{c} \cup B^\mathsf{c}$.
+				\\ \vspace{1mm}
+				Similarly, by contrapositive, let $x$ be an arbitary but fixed element of $A \cap B$. Then, by definition of intersection, $x \in A$ and $x \in B$. Then, by de Morgan's laws, $x \notin A^\mathsf{c}$ or $x \notin B^\mathsf{c}$. As a result, by assuming to the contrapositive, $A^\mathsf{c} \cup B^\mathsf{c}$ is a subset of $(A \cap B)^\mathsf{c}$.
+				\\ \vspace{1mm}
+				$\therefore (A \cap B)^\mathsf{c} = A^\mathsf{c} \cup B^\mathsf{c}$
+			\end{proof}
+		\end{flushleft}
+		\textbf{\textit{2.4.9}}
+		\begin{flushleft}
+			\begin{enumerate}
+				\item \[(\bigcup\limits_{\alpha \in \Lambda} A_\alpha)^\mathsf{c} = \bigcap\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c}\]
+				\begin{proof}
+					Let $x$ be an arbitary but fixed element of $(\bigcup\limits_{\alpha \in \Lambda}A_{\alpha})^{\mathsf{c}}$. By definition of complement, $x$ is not an element of $\bigcup\limits_{\alpha \in \Lambda}A_{\alpha}$. By definition of generalized union, $x$ is not an element of the set of all objects of $A_\alpha$. By definition of complement, $x$ is an element of $A_\alpha^\mathsf{c}$ of all $A_\alpha$. Then, by definition of generalized union, $x$ is an element of $\bigcap\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c}$. Thus, $(\bigcup\limits_{\alpha \in \Lambda} A_\alpha)^\mathsf{c} \subseteq \bigcap\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c}$.
+					\\ \vspace{1mm}
+					Similarly, these reasons apply to the vice versa. As a result, $\bigcap\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c} \subseteq (\bigcup\limits_{\alpha \in \Lambda} A_\alpha)^\mathsf{c}$.
+					\\ $\therefore (\bigcup\limits_{\alpha \in \Lambda} A_\alpha)^\mathsf{c} = \bigcap\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c}$
+				\end{proof}
+				%\item \[(\bigcap\limits_{\alpha \in \Lambda} A_\alpha)^\mathsf{c} = \bigcup\limits_{\alpha \in \Lambda} A_\alpha^\mathsf{c}\]
+			\end{enumerate}
+		\end{flushleft}
+		\textbf{\textit{2.5.7}}
+		\begin{flushleft}
+			Let $S$ be any finite set and suppose $x \notin S$. Let $K = S \cup \{x\}$.
+			\begin{enumerate}
+				\item Prove that $\euscr{P}(K)$ is the disjoint union of $\euscr{P}(S)$ and
+				\[X = \{T \subseteq K : x  \in T\}.\]
+				(That is show that $\euscr{P}(K) = \euscr{P}(S) \cup X$ and that $\euscr{P}(S) \cap X = \emptyset$. ) \\
+				\begin{proof}
+					By the assumptions, $S$ is a subset of $K$. Since $S$ is a subset of $K$, $\euscr{P}(S)$ is also a subset of $\euscr{P}(K)$. By definition of power set, $\abs{\euscr{P}(S)}$ is $2^{\abs{S}}$. Since $x \notin S$, $x \in T$ and $T \in X$, $\euscr{P}(S) \cap X$ is $\emptyset$. Since $S$ and $x$ are subsets of $K$, $K$ has a total of $\abs{S} + 1$ elements. Then, by definition of power set, $\abs{\euscr{P}(K)} = 2^{\abs{S+1}}$. By definition of power set, $\abs{\euscr{P}(S) \cup X)}= 2^{\abs{S+1}}$ which has an equivalent numbers of elements as $\abs{\euscr{P}(K)}$.
+				\end{proof}
+				%\item Prove that every element of $X$ is the union of a subset of $S$ with $\{x\}$,  and that if you take different subsets of $S$ you get different elements of $X$. Argue that, therefore, $X$ has the same number of elements as $\euscr{P}(S)$.
+				
+				%\item Argue that the previous two parts allow you to conclude that if $S$ is a finite set, then $\euscr{P}(K)$ has twice as many elements as $\euscr{P}(S)$.
+			\end{enumerate}
+		\end{flushleft}
+	\end{enumerate}
+\end{document}
