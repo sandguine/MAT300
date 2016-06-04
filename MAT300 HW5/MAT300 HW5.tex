@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{mathtools,xparse}
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\begin{document}
+\title{MAT300: Homework 5}
+\author{
+	Joseph (Shep) Bryan IV \\
+	Benjamin (Ben) Friedman\\
+	Koranis (Sandy) Tanwisuth
+}
+
+\maketitle
+	\begin{flushleft}
+		\textbf{pp. 62-64: 3.2.6, 3.3.2, Q2P 3}
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item Induction \\
+		
+		\textbf{\textit{3.2.6}}
+		\begin{flushleft}
+			Let $x \neq 1$ be a real number. For all $n \in \mathbb{N}$. 
+			\begin{equation}
+				\frac{x^n-1}{x-1} = x^{n-1}+x^{n-2}+...+x^2+x+1
+			\end{equation}
+			\\
+			\begin{proof}
+				By induction, let \\
+				\begin{align*}
+					P(n): \frac{x^n-1}{x-1} & = x^{n-1}+x^{n-2}+...+x^2+x+1 \\
+					& = \sum\limits_{i=0}^{n-1} x^i
+				\end{align*} \\
+				\textbf{Base Case ($n = 1$):}
+				\\ When $P(n=1)$, the left hand side of the equation equals to \[\frac{x^1-1}{x-1} = \frac{(x-1)}{(x-1)}  = 1 \]
+				while the right hand side equals to $x^0 = 1$. Thus, both sides are equal and $P(n)$ is true for $n=1$.
+				\\
+				\pagebreak
+				\textbf{Induction Step:}
+				\\
+				Let $k$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true, i.e. $\frac{x^k-1}{x-1} = \sum\limits_{i=0}^{k-1} x^i$. Then
+				\begin{align*}
+					\frac{x^{k+1}-1}{x-1}
+					& = \sum\limits_{i=0}^{k-1} x^i + x^{(k+1)-1} \\
+					& = (x^{k-1}+x^{k-2}+...+x^2+x+1) + x^k, \thickspace by \thickspace induction \thickspace hypothesis \\
+					& = x^k+x^{k-1}+x^{k-2}+...+x^2+x+1 \\
+					& = \sum\limits_{i=0}^{k} x^i \\
+					& = \sum\limits_{i=0}^{(k+1)-1} x^i 
+				\end{align*}
+				Thus, $P(n)$ holds for $n=k+1$. 
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+			
+		\end{flushleft}
+		
+		\textbf{\textit{3.3.2}}
+		\begin{flushleft}
+		Use complete induction to prove that every natural number can be written as the sum of distinct powers of two.
+			\\
+			\begin{proof}
+				By complete induction, \\
+				\[P(n): n \geq 1\thickspace is\thickspace the\thickspace sum\thickspace of\thickspace distinct\thickspace power\thickspace of\thickspace two\]
+				\textbf{Base Case ($n = 1$):}
+				\\ \vspace{2mm}
+				When $n = 1$, $P(1)$ equals to $2^0$. Thus, $P(n)$ holds for $n=1$.
+				\\ \vspace{2mm}
+				\textbf{Induction Step:}
+				\\ \vspace{2mm}
+				Suppose $n \geq 1$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true for all $k \leq n$ by induction hypothesis. Then, \textbf{consider $n+1$},\\
+				\vspace{2mm}
+				If $n+1$ is even, then there exists an integer $k \leq n$ such that $(n+1) = 2k$. By induction hypothesis, $k$ is the sum of distinct power of $2$ and hence so is $(n+1)$.
+				\\ \vspace{2mm}
+				If $n+1$ is odd, then $n$ is even, and by induction hypothesis is a sum of distinct powers of $2$, which does not contain a summand of $2^n=1$. Therefore, $(n+1) = n + 2^0$ is a sum of distincts powers of 2. 
+				Thus, $a_n$ holds for $n=k+1$.
+				\\ \vspace{2mm}
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
+			\end{proof}
+		\end{flushleft}
+		
+		\textbf{\textit{Q2P: 3}}
+		\begin{flushleft}
+			\begin{proof}
+				Principle of Mathematical Induction: Suppose $S$ is an arbitary but fixed subset of $\mathbb{Z^+}$ contains 1, and for every $n \in \mathbb{Z^+}$, if $n \in S$ then $(n+1) \in S$ then $S = \mathbb{Z^+}$ 
+				\\ \vspace{2mm}
+				By complete induction, suppose $T$ is an arbitary but fixed subset of $\mathbb{Z^+}$ that has no smallest element. Let $S = \mathbb{Z^+} \setminus T$. We will prove that $S= \mathbb{Z^+}$, which means $T = \emptyset$.
+				\\ \vspace{2mm}
+				\textbf{Base Step:} Since $T$ has no smallest element, $1$ cannot be an element of $T$ so $1 \in S$.
+				\\ \vspace{2mm}
+				\textbf{Induction Step:} Suppose $n \in \mathbb{Z^+}$ is an arbitary but fixed and all $i \leq n$ are elements of $S$, i.e. none of them are in $T$. \\
+				Then $(n+1)$ cannot be in $T$ either since it would be the smallest element in $T$ if it was. So $(n+1) \in S$. By the principle of mathematical induction, $S \in \mathbb{Z^+} \thickspace and \thickspace T = \emptyset$.
+			\end{proof}
+		\end{flushleft}
+		
+		\end{enumerate}
+	\end{flushleft}
+\end{document}
