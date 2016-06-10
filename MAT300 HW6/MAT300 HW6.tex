@@ -21,37 +21,86 @@
 
 \maketitle
 	\begin{flushleft}
-		\textbf{p.68: 4.1.10, pp.75-76: 4.2.15, pp.96-97: 2, 3c, 5, 10, 11}
-
-		\textbf{\textit{4.1.10}}
+		\textbf{pp.76-82: 4.2.18, 4.2.22, 4.3.8, 4.3.11, 4.3.16, 4.3.21}
+		\\ \vspace{3mm}
+		
+		\textbf{\textit{4.2.18}}
 		\begin{flushleft}
-			Indicate whether the following relations are reflexive, symmetric, antisymmetric, or transitive.
+			In a totally ordered set, immediate successors and immediate pedecessors (when they exists) are unique 
+			\\ \vspace{3mm}
+			\textbf{Immediate Successor}
+			\begin{proof}
+				Suppose $A$ is a totally ordered set. Let $x$ be an arbitrary but fixed element of $A$. Assume that $x$ has two immediate successors $y_1$ and $y_2$. Since $y_1$ is an immediate successor of $x$, by definition of immediate successor, there does not exist an element $z \in A$ such that $x < z <y_1$. Analogously, since $y_2$ is an immediate successor of $x$, there does not exist an element $z \in A$ such that $x < z <y_2$.  Thus, $y_1 = y_2$, since every totally ordered set is antisymmetric. As a result, immediate successors are unique if they exist.
+			\end{proof}
+			
+			\textbf{Immediate Predecessor}
+			\begin{proof}
+				Suppose $A$ is a totally ordered set. Let $x$ be an arbitrary but fixed element of $A$. Assume that $x$ has two immediate predecessors $w_1$ and $w_2$. Since $w_1$ is an immediate predecessor of $x$, by definition of immediate predecessor, there does not exist an element $u \in A$ such that $w_1 < u <x$. Analogously, since $w_2$ is an immediate predecessor of $x$, there does not exist an element $u \in A$ such that $w_2 < u <x$.  Thus, $w_1 = w_2$, since every totally ordered set is antisymmetric. As a result, immediate predecessors are unique if they exist.
+			\end{proof}
+		\end{flushleft}
+		
+		\pagebreak
+		\textbf{\textit{4.2.22}}
+		\begin{flushleft}
+			Let $A$ be a partially ordered set. Let $K$ be a nonempty subset of $A$. If $K$ has a least upper bound, it is unique.
+			\\
+			\begin{proof}
+				Let $A$ be a partially ordered set. Let $K$ be a nonempty subset of $A$. Suppose there exist elements $u_1$ and $u_2$ of $K$ which are least upper bounds. Since $u_1$ is a least upper bound and $u_2$ is also a least upper bound, $u_1 \leq u_2$. Analogously, since $u_2$ is a least upper bound and $u_1$ is also a least upper bound, $u_2 \leq u_1$. Thus, $u_1 = u_2$ since every partially ordered set is antisymmetric. As a result, if $K \subseteq A$ has a least upper bound then the least upper bound is unique.
+			\end{proof}
+		\end{flushleft}
+		
+		\textbf{\textit{4.3.8}}
+		\begin{flushleft}
+			Let $A$ be a set and let $\Omega$ be a subset of $\euscr{P}(A)$. Then the relation $\thicksim_\Omega$ associated with $\Omega$ is symmetric. 
+			\\ \vspace{3mm}
+			\textbf{Side Notes:} We want to prove that $\thicksim_\Omega$  is symmetric i.e. we need to show that $\forall x, y \in A (x\thicksim_\Omega y) \implies (y\thicksim_\Omega x)$
+			\begin{proof}
+				Let $A$ be an arbitrary but fixed set and let $\Omega$ be an arbitrary but fixed subset of $\euscr{P}(A)$. Suppose there exist arbitrary but fixed elements $a$ and $b$ of $A$ in which $a$ is related to $b$. By definition of relation (4.3.6), $a$ and $b$ are elements of the same set $S$ where $S$ is an element of $\Omega$. Since $a$ and $b$ are in the same set $S$, $b$ is also related to $a$. Thus, $a \thicksim_\Omega b$ implies that $b \thicksim_\Omega a$. As a result, the relation $\thicksim_\Omega$ associated with $\Omega$ is symmetric.
+			\end{proof}
+		\end{flushleft}
+		
+		\textbf{\textit{4.3.11}}
+		\begin{flushleft}
+			Let $A= \{1,2,3,4,5,6\}$
 			\begin{enumerate}
-				\item $A = \{p: p$ is a person in Alaska\}. $x$~$y$ if $x$ is at least as tall as $y$.
-				\\
-				Let A be ab arbitary but fixed set as given. Let R be a relation where By definition of reflexive, a relation A is reflexive if every element of A is related to itself (p.68: 4.1.8).  Since 
+				\item Consider the following subset of $\euscr{P}(A)$:
+				\[\Omega=\{\{1,2,3,4\},\{5,6\}.\}\]
+				Find $\thicksim_\Omega$.
 				
+				\begin{align*}
+					\thicksim_\Omega = \{&(1,1), (1,2), (1,3), (1,4), (2,1), (2,2), (2,3), (2,4), \\
+					& (3,1), (3,2), (3,3), (3,4), (4,1), (4,2), (4,3), (4,4), \\
+					& (5,5), (5,6), (6,5), (6,6) \}
+				\end{align*}
+				
+			\item Consider the following relation on $A$:
+			\[\thicksim = \{(1,1), (2,2), (3,3), (4,4), (5,5), (6,6), (1,4), (2,1), (2,4), (4, 1), (4,2), (3,6), (6,3) \}.\]
+			Find $\Omega_\thicksim$
+			\[\Omega_\thicksim = \{\{1, 2, 4\}, \{3,6\}, \{5\}\}\]
 			\end{enumerate}
 		\end{flushleft}
 		
-		\textbf{\textit{4.2.15}}
+		\textbf{\textit{4.3.16}}
 		\begin{flushleft}
-			test
+			Let $A$ be a set and let $\Omega$ be a subset of $\euscr{P}(A)$. Suppose that the elements of $\Omega$ are pairwise disjoint. Then the relation $\thicksim_\Omega$ associated with $\Omega$ is transitive.
+			
+			\begin{proof}
+				Let $A$ be an arbitrary but fixed set and let $\Omega$ be an arbitrary but fixed subset of $\euscr{P}(A)$. Suppose that the elements of $\Omega$ are pairwise disjoint which means that if $S_1, S_2$ are arbitrary but fixed elements of $\Omega$, then $S_1 = S_2$ or $S_1 \cap S_2 = \emptyset$. Let $x,y,z$ be arbitrary but fixed elements of $A$ and $x \thicksim_\Omega y$ and $y \thicksim_\Omega z$. By definition of relation, this means that there exists an arbitrary but fixed set $R$ which is an element of $\Omega$ such that $x \in R$ and $y \in R$. Analogously, since $y \thicksim_\Omega z$, this means that there exists an arbitrary but fixed set $S$ which is an element of $\Omega$ such that $y \in S$ and $z \in S$. Since $y$ is an element of $R$ and $S$, by the hypothesis which assume pairwise disjoint, $R = S$. Thus $x \in S$, $z \in S$, and $x \thicksim_\Omega z$. As a result, the relation $\thicksim_\Omega z$ associated with $\Omega$ is transitive.
+			\end{proof}
 		\end{flushleft}
-		\begin{enumerate}
-			\setcounter{enumi}{1}
-			\item Q2
 		
-			\item Q3
+		\textbf{\textit{4.3.21}}
+		\begin{flushleft}
+			Let $\thicksim$ be an equivalence relation on a set $S$. Then $\Omega_\thicksim$ forms a partition of $S$. That is, \\
+			\begin{itemize}
+				\item $\bigcup\limits_{x \in S} T_x = S,$ and
+				\item for $x$ and $y$ in $S$, either $T_x = T_y$, or $T_x \cap T_y = \emptyset$.
+			\end{itemize}
+			
+			\begin{proof}
+				Suppose $A$ is an arbitrary but fixed set and $\thicksim$ is an equivalence relation on $S$. Suppose $a, b$ are arbitrary but fixed elements of $A$ and $T_a \cap T_b \neq \emptyset$. Let $x$ be an arbitrary but fixed element of $T_a$. Since $x \in T_a$, $a \thicksim x$. Since $T_a \cap T_b \neq \emptyset$, there exists an element $c$ of $T_a \cap T_b$ such that $a \thicksim c$ and $b \thicksim c$. Since an equivalence relation is symmetric and transitive, $b$ is related to $x$. Therefore $x \in T_b$ which means that $x \subseteq T_b$.
+			\end{proof}
+		\end{flushleft}
 		
-			\setcounter{enumi}{4}
-			\item Q5
-		
-			\setcounter{enumi}{9}
-			\item Q10
-		
-			\item Q11
-	
-		\end{enumerate}
 	\end{flushleft}
 \end{document}
