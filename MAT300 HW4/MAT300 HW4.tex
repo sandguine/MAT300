@@ -13,8 +13,8 @@
 \begin{document}
 \title{MAT300: Homework 4}
 \author{
-	Joseph (Shep) Bryan IV \\
-	Benjamin (Ben) Friedman\\
+	Joseph Bryan IV\\
+	Benjamin Friedman\\
 	Koranis (Sandy) Tanwisuth
 }
 
@@ -84,17 +84,27 @@
 			\end{proof}
 		\end{flushleft}
 		
-		\textbf{\textit{Q2P: 3}}
+		\textbf{\textit{Q2P: 2}}
 		\begin{flushleft}
+			Formulate and prove a generalization of the Principle of Mathematical Induction in which the base case is an arbitary $m \in \mathbb{Z}$.
+			\\
 			\begin{proof}
-				Principle of Mathematical Induction: Suppose $S$ is an arbitary but fixed subset of $\mathbb{Z^+}$ contains 1, and for every $n \in \mathbb{Z^+}$, if $n \in S$ then $(n+1) \in S$ then $S = \mathbb{Z^+}$ 
+				By complete induction, \\
+				\[P(n): n \geq 1\thickspace is\thickspace the\thickspace sum\thickspace of\thickspace distinct\thickspace power\thickspace of\thickspace two\]
+				\textbf{Base Case ($n = 1$):}
 				\\ \vspace{2mm}
-				By complete induction, suppose $T$ is an arbitary but fixed subset of $\mathbb{Z^+}$ that has no smallest element. Let $S = \mathbb{Z^+} \setminus T$. We will prove that $S= \mathbb{Z^+}$, which means $T = \emptyset$.
+				When $n = 1$, $P(1)$ equals to $2^0$. Thus, $P(n)$ holds for $n=1$.
 				\\ \vspace{2mm}
-				\textbf{Base Step:} Since $T$ has no smallest element, $1$ cannot be an element of $T$ so $1 \in S$.
+				\textbf{Induction Step:}
 				\\ \vspace{2mm}
-				\textbf{Induction Step:} Suppose $n \in \mathbb{Z^+}$ is an arbitary but fixed and all $i \leq n$ are elements of $S$, i.e. none of them are in $T$. \\
-				Then $(n+1)$ cannot be in $T$ either since it would be the smallest element in $T$ if it was. So $(n+1) \in S$. By the principle of mathematical induction, $S \in \mathbb{Z^+} \thickspace and \thickspace T = \emptyset$.
+				Suppose $n \geq 1$ be an arbitrary but fixed element in $N$ and suppose that $P(k)$ is true for all $k \leq n$ by induction hypothesis. Then, \textbf{consider $n+1$},\\
+				\vspace{2mm}
+				If $n+1$ is even, then there exists an integer $k \leq n$ such that $(n+1) = 2k$. By induction hypothesis, $k$ is the sum of distinct power of $2$ and hence so is $(n+1)$.
+				\\ \vspace{2mm}
+				If $n+1$ is odd, then $n$ is even, and by induction hypothesis is a sum of distinct powers of $2$, which does not contain a summand of $2^n=1$. Therefore, $(n+1) = n + 2^0$ is a sum of distincts powers of 2. 
+				Thus, $a_n$ holds for $n=k+1$.
+				\\ \vspace{2mm}
+				By the principle of mathematical induction, $P(n)$ is true for all $n \in \mathbb{N}$.
 			\end{proof}
 		\end{flushleft}
 		
